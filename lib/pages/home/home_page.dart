@@ -6,6 +6,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 226, 224, 224),
       body: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
@@ -32,6 +33,13 @@ class HomePage extends StatelessWidget {
                   icon: Icon(Icons.shopping_cart, size: 28),
                 ),
               ],
+            ),
+            SizedBox(height: 20),
+            SearchBar(
+              backgroundColor: WidgetStatePropertyAll(Colors.white),
+              hintText: "Search for products",
+              onChanged: (value) {},
+              elevation: WidgetStatePropertyAll(0.0),
             ),
           ],
         ),
