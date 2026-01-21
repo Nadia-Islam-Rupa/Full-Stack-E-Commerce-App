@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const CustomBottomBar(),
-      //backgroundColor: Color.fromARGB(255, 239, 238, 238),
+
       backgroundColor: const Color(0xFFF5F5F5),
       body: Padding(
         padding: EdgeInsets.all(10.0),
