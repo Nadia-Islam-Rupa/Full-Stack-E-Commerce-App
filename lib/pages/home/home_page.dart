@@ -87,7 +87,11 @@ class HomePage extends StatelessWidget {
                 },
               ),
             ),
+            SizedBox(height: 20),
             BannerSlider(banners: bannerImages),
+            SizedBox(height: 20),
+            
+
           ],
         ),
       ),
