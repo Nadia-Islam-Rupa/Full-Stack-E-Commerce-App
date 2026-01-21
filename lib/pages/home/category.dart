@@ -13,11 +13,27 @@ class CategoryName extends StatelessWidget {
             CircleAvatar(
               radius: 25,
               backgroundColor: Colors.white,
-              child: Icon(Icons.category, size: 30, color: Colors.blue),
+              backgroundImage: AssetImage("assets/fashion.jpg"),
             ),
+
             SizedBox(height: 5),
             Text(
               "Fashion",
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            CircleAvatar(
+              radius: 25,
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage("assets/men.jpeg"),
+            ),
+
+            SizedBox(height: 5),
+            Text(
+              "Men",
               style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
             ),
           ],
