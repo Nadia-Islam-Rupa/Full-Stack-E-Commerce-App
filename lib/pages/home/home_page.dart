@@ -10,7 +10,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 239, 238, 238),
+      //backgroundColor: Color.fromARGB(255, 239, 238, 238),
+      backgroundColor: const Color(0xFFF5F5F5),
       body: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
@@ -39,19 +40,28 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                hintText: "Search for products",
-                prefixIcon: Icon(Icons.search),
-                suffixIcon: Icon(Icons.mic),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(30),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.05),
+
+                    blurRadius: 10,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Search for products",
+                  prefixIcon: Icon(Icons.search),
                 ),
               ),
             ),
+
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
