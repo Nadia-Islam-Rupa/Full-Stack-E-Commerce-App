@@ -35,11 +35,18 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            SearchBar(
-              backgroundColor: WidgetStatePropertyAll(Colors.white),
-              hintText: "Search for products",
-              onChanged: (value) {},
-              elevation: WidgetStatePropertyAll(0.0),
+            TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: "Search for products",
+                prefixIcon: Icon(Icons.search),
+                suffixIcon: Icon(Icons.mic),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
             ),
           ],
         ),
