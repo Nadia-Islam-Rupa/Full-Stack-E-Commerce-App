@@ -48,6 +48,21 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Categories",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "view all ->",
+                  style: TextStyle(fontSize: 14, color: Colors.blue),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
           ],
         ),
       ),
