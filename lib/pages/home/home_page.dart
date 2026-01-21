@@ -90,8 +90,17 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 20),
             BannerSlider(banners: bannerImages),
             SizedBox(height: 20),
-            
 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Featured ",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text("view all ->", style: TextStyle(fontSize: 14)),
+              ],
+            ),
           ],
         ),
       ),
