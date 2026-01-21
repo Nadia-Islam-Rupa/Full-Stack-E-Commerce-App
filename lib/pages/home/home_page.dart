@@ -58,10 +58,7 @@ class HomePage extends StatelessWidget {
                   "Categories",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  "view all ->",
-                  style: TextStyle(fontSize: 14, color: Colors.blue),
-                ),
+                Text("view all ->", style: TextStyle(fontSize: 14)),
               ],
             ),
             SizedBox(height: 20),
