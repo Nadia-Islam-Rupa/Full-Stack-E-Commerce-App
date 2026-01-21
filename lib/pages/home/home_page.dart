@@ -1,3 +1,4 @@
+import 'package:ai_powered_e_commerce_app/pages/home/category.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -63,6 +64,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
+            CategoryName(),
           ],
         ),
       ),
