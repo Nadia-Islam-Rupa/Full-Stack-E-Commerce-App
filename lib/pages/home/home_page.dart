@@ -1,6 +1,7 @@
 import 'package:ai_powered_e_commerce_app/data/banner/banner_data.dart';
 import 'package:ai_powered_e_commerce_app/data/category/category_data.dart';
 import 'package:ai_powered_e_commerce_app/data/featued_product/featured_data.dart';
+import 'package:ai_powered_e_commerce_app/pages/bottom_bar/bottom_bar.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/banner.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/category.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/featured_product.dart';
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const CustomBottomBar(),
       //backgroundColor: Color.fromARGB(255, 239, 238, 238),
       backgroundColor: const Color(0xFFF5F5F5),
       body: Padding(
