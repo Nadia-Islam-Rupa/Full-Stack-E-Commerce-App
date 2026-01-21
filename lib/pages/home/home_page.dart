@@ -1,4 +1,6 @@
+import 'package:ai_powered_e_commerce_app/data/banner/banner_data.dart';
 import 'package:ai_powered_e_commerce_app/data/category/category_data.dart';
+import 'package:ai_powered_e_commerce_app/pages/home/banner.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/category.dart';
 import 'package:flutter/material.dart';
 
@@ -75,6 +77,7 @@ class HomePage extends StatelessWidget {
                 },
               ),
             ),
+            BannerSlider(banners: bannerImages),
           ],
         ),
       ),
