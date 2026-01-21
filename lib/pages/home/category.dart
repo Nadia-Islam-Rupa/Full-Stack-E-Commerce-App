@@ -1,42 +1,24 @@
+import 'package:ai_powered_e_commerce_app/data/category/category_model.dart';
 import 'package:flutter/material.dart';
 
-class CategoryName extends StatelessWidget {
-  const CategoryName({super.key});
+class CategoryItem extends StatelessWidget {
+  final Category category;
+
+  const CategoryItem({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        Column(
-          children: [
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage("assets/fashion.jpg"),
-            ),
-
-            SizedBox(height: 5),
-            Text(
-              "Fashion",
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-            ),
-          ],
+        CircleAvatar(
+          radius: 28,
+          backgroundColor: Colors.white,
+          backgroundImage: AssetImage(category.image),
         ),
-        Column(
-          children: [
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage("assets/men.jpeg"),
-            ),
-
-            SizedBox(height: 5),
-            Text(
-              "Men",
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-            ),
-          ],
+        const SizedBox(height: 6),
+        Text(
+          category.name,
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
         ),
       ],
     );
