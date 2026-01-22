@@ -23,7 +23,10 @@ class CategoryCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10),
+            BoxShadow(
+              color: const Color.fromARGB(255, 214, 212, 212),
+              blurRadius: 10,
+            ),
           ],
         ),
         child: Column(
