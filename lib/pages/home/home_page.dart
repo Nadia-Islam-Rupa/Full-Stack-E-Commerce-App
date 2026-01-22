@@ -13,112 +13,112 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       bottomNavigationBar: const CustomBottomBar(),
 
       backgroundColor: const Color(0xFFF5F5F5),
-      body: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Hello", style: TextStyle(fontSize: 17)),
-                      Text(
-                        "Welcome",
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.shopping_cart, size: 28),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.05),
 
-                      blurRadius: 10,
-                      offset: Offset(0, 4),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(10, 10, 10, 110),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Hello", style: TextStyle(fontSize: 17)),
+                    Text(
+                      "Welcome",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Search for products",
-                    prefixIcon: Icon(Icons.search),
-                  ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.shopping_cart, size: 28),
                 ),
-              ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.05),
 
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Categories",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    blurRadius: 10,
+                    offset: Offset(0, 4),
                   ),
-                  Text("view all ->", style: TextStyle(fontSize: 14)),
                 ],
               ),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 90,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: CategoryItem(category: categories[index]),
-                    );
-                  },
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Search for products",
+                  prefixIcon: Icon(Icons.search),
                 ),
               ),
-              SizedBox(height: 20),
-              BannerSlider(banners: bannerImages),
-              SizedBox(height: 20),
+            ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Featured ",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Text("view all ->", style: TextStyle(fontSize: 14)),
-                ],
-              ),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 220,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: featuredProducts.length,
-                  itemBuilder: (context, index) {
-                    return ProductCard(product: featuredProducts[index]);
-                  },
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Categories",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
+                Text("view all ->", style: TextStyle(fontSize: 14)),
+              ],
+            ),
+            SizedBox(height: 20),
+            SizedBox(
+              height: 90,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: CategoryItem(category: categories[index]),
+                  );
+                },
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 20),
+            BannerSlider(banners: bannerImages),
+            SizedBox(height: 20),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Featured ",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text("view all ->", style: TextStyle(fontSize: 14)),
+              ],
+            ),
+            SizedBox(height: 20),
+            SizedBox(
+              height: 220,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: featuredProducts.length,
+                itemBuilder: (context, index) {
+                  return ProductCard(product: featuredProducts[index]);
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
