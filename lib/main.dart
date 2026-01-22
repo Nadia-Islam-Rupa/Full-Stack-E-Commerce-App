@@ -1,4 +1,4 @@
-import 'package:ai_powered_e_commerce_app/pages/home/home_page.dart';
+import 'package:ai_powered_e_commerce_app/routes/app_route.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      routerConfig: appRouter,
     );
   }
 }
