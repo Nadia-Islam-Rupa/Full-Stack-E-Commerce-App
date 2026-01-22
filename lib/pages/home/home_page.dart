@@ -6,6 +6,7 @@ import 'package:ai_powered_e_commerce_app/pages/home/banner.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/category.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/featured_product.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -78,7 +79,7 @@ class HomePage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // Handle view all categories tap
+                    context.push('/category');
                   },
                   child: Text("view all ->", style: TextStyle(fontSize: 14)),
                 ),

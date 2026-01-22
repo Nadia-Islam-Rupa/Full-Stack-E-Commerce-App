@@ -5,6 +5,9 @@ class ShowCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text("Categories")),
+      body: Center(child: Text("Category Page")),
+    );
   }
 }
