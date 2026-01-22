@@ -1,5 +1,6 @@
 import 'package:ai_powered_e_commerce_app/data/banner/banner_data.dart';
 import 'package:ai_powered_e_commerce_app/data/category/category_data.dart';
+
 import 'package:ai_powered_e_commerce_app/data/featued_product/featured_data.dart';
 import 'package:ai_powered_e_commerce_app/pages/bottom_bar/bottom_bar.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/banner.dart';
@@ -79,7 +80,7 @@ class HomePage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    context.push('/category');
+                    context.push('/categories');
                   },
                   child: Text("view all ->", style: TextStyle(fontSize: 14)),
                 ),

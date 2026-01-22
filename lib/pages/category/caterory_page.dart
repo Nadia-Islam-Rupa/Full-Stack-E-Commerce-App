@@ -8,13 +8,7 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Categories"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
+      appBar: AppBar(title: const Text("Categories")),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: GridView.builder(
