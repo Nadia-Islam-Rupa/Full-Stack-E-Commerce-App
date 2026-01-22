@@ -13,7 +13,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/category',
       name: 'category',
-      builder: (context, state) => const ShowCategory(),
+      builder: (context, state) => const CategoryPage(),
     ),
   ],
 );
