@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
       extendBody: true,
       bottomNavigationBar: const CustomBottomBar(),
 
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: const Color.fromARGB(255, 240, 239, 239),
 
       body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 110),
