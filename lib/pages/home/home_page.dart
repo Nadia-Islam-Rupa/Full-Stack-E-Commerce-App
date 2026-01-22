@@ -6,6 +6,7 @@ import 'package:ai_powered_e_commerce_app/pages/bottom_bar/bottom_bar.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/banner.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/category.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/featured_product.dart';
+import 'package:ai_powered_e_commerce_app/routes/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -80,7 +81,8 @@ class HomePage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    context.push('/categories');
+                    //context.push('/categories');
+                    context.go(AppRoutes.categories);
                   },
                   child: Text("view all ->", style: TextStyle(fontSize: 14)),
                 ),

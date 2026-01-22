@@ -12,7 +12,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed("products");
+        context.pushNamed("/products", extra: category);
       },
       child: Container(
         decoration: BoxDecoration(
