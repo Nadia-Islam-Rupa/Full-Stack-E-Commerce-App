@@ -18,7 +18,12 @@ class CategoryCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: Colors.white,
-          boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 10)],
+          boxShadow: [
+            BoxShadow(
+              color: const Color.fromARGB(255, 205, 203, 203),
+              blurRadius: 10,
+            ),
+          ],
         ),
         child: Column(
           children: [
