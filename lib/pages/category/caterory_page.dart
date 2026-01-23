@@ -8,7 +8,13 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: const Text("Categories")),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          "Categories",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: GridView.builder(
