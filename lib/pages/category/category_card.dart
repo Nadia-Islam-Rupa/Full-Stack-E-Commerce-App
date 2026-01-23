@@ -20,7 +20,7 @@ class CategoryCard extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: const Color.fromARGB(255, 205, 203, 203),
+              color: const Color.fromARGB(255, 233, 232, 232),
               blurRadius: 10,
             ),
           ],

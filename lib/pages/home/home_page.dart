@@ -82,7 +82,7 @@ class HomePage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     //context.push('/categories');
-                    context.go(AppRoutes.categories);
+                    context.push(AppRoutes.categories);
                   },
                   child: Text("view all ->", style: TextStyle(fontSize: 14)),
                 ),
