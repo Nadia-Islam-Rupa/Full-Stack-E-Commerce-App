@@ -1,22 +1,14 @@
-import 'package:ai_powered_e_commerce_app/data/category/category_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductListPage extends StatelessWidget {
-  final Category category;
-
-  const ProductListPage({super.key, required this.category});
+  const ProductListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(category.name),
-      ),
+      appBar: AppBar(title: Text('category.name')),
       body: Center(
-        child: Text(
-          "Products of ${category.name}",
-          style: const TextStyle(fontSize: 18),
-        ),
+        child: Text("Products of", style: const TextStyle(fontSize: 18)),
       ),
     );
   }

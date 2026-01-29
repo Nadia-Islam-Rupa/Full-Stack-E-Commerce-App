@@ -1,4 +1,5 @@
 import 'package:ai_powered_e_commerce_app/pages/category/caterory_page.dart';
+import 'package:ai_powered_e_commerce_app/pages/category/product_list.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:ai_powered_e_commerce_app/pages/home/home_page.dart';
@@ -11,6 +12,12 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/categories',
       builder: (context, state) => const CategoryPage(),
+      routes: [
+        GoRoute(
+          path: 'subcategory',
+          builder: (context, state) => ProductListPage(),
+        ),
+      ],
     ),
   ],
 );
