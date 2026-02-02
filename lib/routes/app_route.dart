@@ -12,12 +12,14 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/categories',
       builder: (context, state) => const CategoryPage(),
-      routes: [
-        GoRoute(
-          path: 'subcategory',
-          builder: (context, state) => ProductListPage(),
-        ),
-      ],
+    ),
+
+    GoRoute(
+      path: '/products/:category',
+      builder: (context, state) {
+        final category = state.pathParameters['category']!;
+        return ProductListPage(category: category);
+      },
     ),
   ],
 );
