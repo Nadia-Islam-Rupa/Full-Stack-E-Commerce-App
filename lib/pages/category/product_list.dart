@@ -1,9 +1,7 @@
 import 'package:ai_powered_e_commerce_app/data/sub_category/sub_cat.dart';
+import 'package:ai_powered_e_commerce_app/pages/category/provider/sub_cat_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/legacy.dart';
-
-final selectedSubCategoryProvider = StateProvider<String>((ref) => 'All');
 
 class ProductListPage extends ConsumerWidget {
   final String category;
