@@ -83,7 +83,10 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     context.push('/categories');
                   },
-                  child: Text("view all ->", style: TextStyle(fontSize: 14)),
+                  child: Text(
+                    "view all ->",
+                    style: TextStyle(fontSize: 14, color: Colors.blue),
+                  ),
                 ),
               ],
             ),
@@ -112,7 +115,10 @@ class HomePage extends StatelessWidget {
                   "Featured ",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                Text("view all ->", style: TextStyle(fontSize: 14)),
+                Text(
+                  "view all ->",
+                  style: TextStyle(fontSize: 14, color: Colors.blue),
+                ),
               ],
             ),
             SizedBox(height: 20),
