@@ -57,9 +57,21 @@ class ProductListPage extends ConsumerWidget {
                 mainAxisSpacing: 16,
                 childAspectRatio: 0.7,
               ),
-              itemCount: 10,
+              itemCount: 5,
               itemBuilder: (context, index) {
-                return Text("data");
+                return Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blueGrey[50],
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color.fromARGB(255, 233, 232, 232),
+                        blurRadius: 10,
+                      ),
+                    ],
+                  ),
+                  child: Text("data"),
+                );
               },
             ),
           ),
