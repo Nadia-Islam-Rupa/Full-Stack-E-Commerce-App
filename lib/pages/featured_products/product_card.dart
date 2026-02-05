@@ -19,7 +19,7 @@ class FeatureProductCard extends StatelessWidget {
               topRight: Radius.circular(12),
             ),
             child: Image.asset(
-              "assets/men.jpeg",
+              "assets/fashion.jpg",
               height: 160, // ⬅️ reduced height
               width: double.infinity,
               fit: BoxFit.cover,

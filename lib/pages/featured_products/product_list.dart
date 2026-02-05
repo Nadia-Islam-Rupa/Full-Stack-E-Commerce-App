@@ -1,5 +1,5 @@
 import 'package:ai_powered_e_commerce_app/data/sub_category/sub_cat.dart';
-import 'package:ai_powered_e_commerce_app/pages/category/provider/sub_cat_provider.dart';
+
 import 'package:ai_powered_e_commerce_app/pages/featured_products/product_card.dart';
 
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class ProductListPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.blueGrey[50],
+
         title: Text(
           category,
           style: const TextStyle(
@@ -30,20 +30,28 @@ class ProductListPage extends ConsumerWidget {
         children: [
           // Subcategory bar
           SizedBox(
-            height: 55,
+            height: 40,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: subCategories.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: ChoiceChip(
-                    label: Text(subCategories[index]),
-                    selected: false,
-                    onSelected: (_) {
-                      ref.read(selectedSubCategoryProvider.notifier).state =
-                          subCategories[index];
-                    },
+                  child: Container(
+                    width: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Center(
+                      child: Text(
+                        subCategories[index],
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 );
               },
@@ -62,7 +70,7 @@ class ProductListPage extends ConsumerWidget {
               ),
               itemCount: 5,
               itemBuilder: (context, index) {
-                return FeatureProductCard();
+                return const FeatureProductCard();
               },
             ),
           ),
