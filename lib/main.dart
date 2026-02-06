@@ -1,5 +1,6 @@
 import 'package:ai_powered_e_commerce_app/routes/app_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
@@ -11,7 +12,7 @@ void main() async {
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZqY3FjY3lzcWp1cG93YmdnenBhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAyNzY5MzAsImV4cCI6MjA4NTg1MjkzMH0.5LByLJkNhPjcH1q8tNk9f4ZhOtYnRcopTt-eYMyPp5w',
   );
 
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
