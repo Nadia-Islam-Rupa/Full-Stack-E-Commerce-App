@@ -1,6 +1,6 @@
 import 'package:ai_powered_e_commerce_app/data/sub_category/sub_cat.dart';
 
-import 'package:ai_powered_e_commerce_app/pages/featured_products/product_card.dart';
+import 'package:ai_powered_e_commerce_app/presentation/featured_products/product_card.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

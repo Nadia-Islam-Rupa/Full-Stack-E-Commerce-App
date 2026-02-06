@@ -1,4 +1,4 @@
-import 'package:ai_powered_e_commerce_app/pages/bottom_bar/custom_bottom_bar_shape.dart';
+import 'package:ai_powered_e_commerce_app/presentation/bottom_bar/custom_bottom_bar_shape.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomBar extends StatelessWidget {
