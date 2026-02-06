@@ -1,12 +1,16 @@
-import 'package:ai_powered_e_commerce_app/data/category/category_data.dart';
-import 'package:ai_powered_e_commerce_app/presentation/category/category_card.dart';
+import 'package:ai_powered_e_commerce_app/presentation/category/provider/category_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CategoryPage extends StatelessWidget {
+import 'category_card.dart';
+
+class CategoryPage extends ConsumerWidget {
   const CategoryPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final categoryAsync = ref.watch(categoryProvider);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -17,18 +21,21 @@ class CategoryPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: GridView.builder(
-          itemCount: categories.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 16,
-            crossAxisSpacing: 16,
-            childAspectRatio: 0.9,
+        child: categoryAsync.when(
+          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (e, _) => Center(child: Text(e.toString())),
+          data: (categories) => GridView.builder(
+            itemCount: categories.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 16,
+              crossAxisSpacing: 16,
+              childAspectRatio: 0.9,
+            ),
+            itemBuilder: (context, index) {
+              return CategoryCard(category: categories[index]);
+            },
           ),
-          itemBuilder: (context, index) {
-            final category = categories[index];
-            return CategoryCard(category: category);
-          },
         ),
       ),
     );

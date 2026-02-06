@@ -1,7 +1,6 @@
-import 'package:ai_powered_e_commerce_app/data/category/category_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../data/category/category_model.dart';
 
 class CategoryCard extends StatelessWidget {
   final Category category;
@@ -12,17 +11,14 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push('/products/${category.name}');
+        context.push('/products/${category.id}');
       },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: const Color.fromARGB(255, 233, 232, 232),
-              blurRadius: 10,
-            ),
+          boxShadow: const [
+            BoxShadow(color: Color(0xFFE9E8E8), blurRadius: 10),
           ],
         ),
         child: Column(
@@ -32,10 +28,13 @@ class CategoryCard extends StatelessWidget {
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(16),
                 ),
-                child: Image.asset(
+                child: Image.network(
                   category.image,
                   fit: BoxFit.cover,
                   width: double.infinity,
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Icon(Icons.image_not_supported);
+                  },
                 ),
               ),
             ),

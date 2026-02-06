@@ -1,35 +1,38 @@
-import 'package:ai_powered_e_commerce_app/data/banner/banner_data.dart';
-import 'package:ai_powered_e_commerce_app/data/category/category_data.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:ai_powered_e_commerce_app/data/featued_product/featured_data.dart';
 import 'package:ai_powered_e_commerce_app/presentation/bottom_bar/bottom_bar.dart';
 import 'package:ai_powered_e_commerce_app/presentation/home/banner.dart';
 import 'package:ai_powered_e_commerce_app/presentation/home/category.dart';
 import 'package:ai_powered_e_commerce_app/presentation/home/featured_product.dart';
 
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:ai_powered_e_commerce_app/data/banner/banner_data.dart';
+import 'package:ai_powered_e_commerce_app/data/featued_product/featured_data.dart';
 
-class HomePage extends StatelessWidget {
+import '../category/provider/category_provider.dart';
+
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final categoryAsync = ref.watch(categoryProvider);
+
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: const CustomBottomBar(),
-
       backgroundColor: const Color.fromARGB(255, 240, 239, 239),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 110),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /// ─── Header ───────────────────────────────
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Hello", style: TextStyle(fontSize: 17)),
@@ -44,11 +47,14 @@ class HomePage extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.shopping_cart, size: 28),
+                  icon: const Icon(Icons.shopping_cart, size: 28),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+
+            const SizedBox(height: 20),
+
+            /// ─── Search ───────────────────────────────
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -56,13 +62,12 @@ class HomePage extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withValues(alpha: 0.05),
-
                     blurRadius: 10,
-                    offset: Offset(0, 4),
+                    offset: const Offset(0, 4),
                   ),
                 ],
               ),
-              child: TextField(
+              child: const TextField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: "Search for products",
@@ -71,11 +76,13 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
+
+            /// ─── Categories Header ────────────────────
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Categories",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
@@ -83,45 +90,60 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     context.push('/categories');
                   },
-                  child: Text(
-                    "view all ->",
+                  child: const Text(
+                    "view all →",
                     style: TextStyle(fontSize: 14, color: Colors.blue),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+
+            const SizedBox(height: 20),
+
+            /// ─── Categories List (Supabase + Riverpod) ─
             SizedBox(
               height: 90,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: categories.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: CategoryItem(category: categories[index]),
-                  );
-                },
+              child: categoryAsync.when(
+                loading: () => const Center(child: CircularProgressIndicator()),
+                error: (e, _) => Center(child: Text('Error: $e')),
+                data: (categories) => ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: CategoryItem(category: categories[index]),
+                    );
+                  },
+                ),
               ),
             ),
-            SizedBox(height: 20),
-            BannerSlider(banners: bannerImages),
-            SizedBox(height: 20),
 
+            const SizedBox(height: 20),
+
+            /// ─── Banner ───────────────────────────────
+            BannerSlider(banners: bannerImages),
+
+            const SizedBox(height: 20),
+
+            /// ─── Featured Header ──────────────────────
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text(
-                  "Featured ",
+                  "Featured",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "view all ->",
+                  "view all →",
                   style: TextStyle(fontSize: 14, color: Colors.blue),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+
+            const SizedBox(height: 20),
+
+            /// ─── Featured Products (still static) ─────
             SizedBox(
               height: 220,
               child: ListView.builder(

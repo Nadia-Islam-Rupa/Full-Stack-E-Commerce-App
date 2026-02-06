@@ -13,7 +13,7 @@ class CategoryItem extends StatelessWidget {
         CircleAvatar(
           radius: 28,
           backgroundColor: Colors.white,
-          backgroundImage: AssetImage(category.image),
+          // backgroundImage: AssetImage(category.image),
         ),
         const SizedBox(height: 6),
         Text(
