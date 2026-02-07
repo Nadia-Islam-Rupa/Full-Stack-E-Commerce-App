@@ -1,4 +1,4 @@
-import 'package:ai_powered_e_commerce_app/data/category/category_data.dart';
+import 'package:ai_powered_e_commerce_app/data/category/category_repository.dart';
 import 'package:ai_powered_e_commerce_app/data/category/category_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
