@@ -17,7 +17,10 @@ class ProductPage extends ConsumerWidget {
     final products = ref.watch(productProvider(subCategoryId));
 
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(
+        title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+      ),
       body: products.when(
         data: (items) {
           return GridView.builder(
@@ -27,18 +30,51 @@ class ProductPage extends ConsumerWidget {
               crossAxisCount: 2,
               mainAxisSpacing: 12,
               crossAxisSpacing: 12,
+              childAspectRatio: 0.75,
             ),
             itemBuilder: (context, index) {
               final product = items[index];
 
-              return Card(
+              return Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 0.5, color: Colors.grey),
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Image.network(product.image, fit: BoxFit.cover),
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
+                      ),
+                      child: SizedBox(
+                        height: 150,
+                        width: double.infinity,
+                        child: Image.network(product.image, fit: BoxFit.cover),
+                      ),
                     ),
-                    Text(product.name),
-                    Text("\$${product.price}"),
+                    const SizedBox(height: 6),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Text(
+                        product.name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Text(
+                        "\$${product.price}",
+                        style: TextStyle(fontSize: 13, color: Colors.grey),
+                      ),
+                    ),
                   ],
                 ),
               );
