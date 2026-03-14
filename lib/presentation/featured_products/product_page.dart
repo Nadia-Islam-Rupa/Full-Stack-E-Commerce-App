@@ -18,7 +18,7 @@ class ProductPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
       ),
       body: products.when(
@@ -43,23 +43,54 @@ class ProductPage extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
-                      ),
-                      child: SizedBox(
-                        height: 150,
-                        width: double.infinity,
-                        child: Image.network(product.image, fit: BoxFit.cover),
-                      ),
+                    /// IMAGE + HEART ICON
+                    Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
+                          child: SizedBox(
+                            height: 150,
+                            width: double.infinity,
+                            child: Image.network(
+                              product.image,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+
+                        /// HEART ICON
+                        Positioned(
+                          top: 8,
+                          right: 8,
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.favorite_border,
+                                color: Colors.red,
+                                size: 20,
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
+
                     const SizedBox(height: 6),
+
+                    /// PRODUCT NAME
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: Text(
                         product.name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -67,12 +98,18 @@ class ProductPage extends ConsumerWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
+
                     const SizedBox(height: 2),
+
+                    /// PRICE
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: Text(
                         "\$${product.price}",
-                        style: TextStyle(fontSize: 13, color: Colors.grey),
+                        style: const TextStyle(
+                          fontSize: 13,
+                          color: Colors.grey,
+                        ),
                       ),
                     ),
                   ],
