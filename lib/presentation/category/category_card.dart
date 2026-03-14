@@ -12,10 +12,12 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //  context.push('/products/${category.id}');
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SubCategory()),
+          MaterialPageRoute(
+            builder: (_) =>
+                SubCategoryPage(categoryId: category.id, title: category.name),
+          ),
         );
       },
       child: Container(
