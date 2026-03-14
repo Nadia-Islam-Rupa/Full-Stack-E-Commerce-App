@@ -1,3 +1,4 @@
+import 'package:ai_powered_e_commerce_app/presentation/sub_cat/sub_category.dart';
 import 'package:flutter/material.dart';
 //import 'package:go_router/go_router.dart';
 import '../../data/category/category_model.dart';
@@ -12,6 +13,10 @@ class CategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //  context.push('/products/${category.id}');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SubCategory()),
+        );
       },
       child: Container(
         decoration: BoxDecoration(

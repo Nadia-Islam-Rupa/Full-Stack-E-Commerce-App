@@ -5,6 +5,12 @@ class SubCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Sub Categories')),
+      body: Column(children: [
+          
+        ],
+      ),
+    );
   }
 }
