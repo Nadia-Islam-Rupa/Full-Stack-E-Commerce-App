@@ -1,5 +1,3 @@
-import 'package:ai_powered_e_commerce_app/data/sub_category/sub_cat.dart';
-
 import 'package:ai_powered_e_commerce_app/presentation/featured_products/product_card.dart';
 
 import 'package:flutter/material.dart';
@@ -12,8 +10,6 @@ class ProductListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final subCategories = subcategory[category] ?? [];
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -35,7 +31,7 @@ class ProductListPage extends ConsumerWidget {
               height: 38,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: subCategories.length,
+                itemCount: 6,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -47,7 +43,7 @@ class ProductListPage extends ConsumerWidget {
                       ),
                       child: Center(
                         child: Text(
-                          subCategories[index],
+                          "subCategories[index]",
                           style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
