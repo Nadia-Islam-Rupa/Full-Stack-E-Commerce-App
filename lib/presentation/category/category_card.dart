@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 import '../../data/category/category_model.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -11,7 +11,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push('/products/${category.id}');
+        //  context.push('/products/${category.id}');
       },
       child: Container(
         decoration: BoxDecoration(
