@@ -19,7 +19,13 @@ class SubCategoryPage extends ConsumerWidget {
     final subCategories = ref.watch(subCategoryProvider(categoryId));
 
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(
+        title: Text(
+          title,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+      ),
       body: subCategories.when(
         data: (subs) {
           return GridView.builder(
@@ -44,43 +50,43 @@ class SubCategoryPage extends ConsumerWidget {
                   );
                 },
                 child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.white,
-          boxShadow: const [
-            BoxShadow(color: Color(0xFFE9E8E8), blurRadius: 10),
-          ],
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.white,
+                    boxShadow: const [
+                      BoxShadow(color: Color(0xFFE9E8E8), blurRadius: 10),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(16),
+                          ),
+                          child: Image.network(
+                            sub.image,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            errorBuilder: (context, error, stackTrace) {
+                              return const Icon(Icons.image_not_supported);
+                            },
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Text(
+                          sub.name,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                child: Image.network(
-                  sub.image,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Icon(Icons.image_not_supported);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(
-                sub.name,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
               );
             },
           );
