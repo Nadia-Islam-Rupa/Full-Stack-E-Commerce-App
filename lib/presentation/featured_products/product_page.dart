@@ -73,7 +73,7 @@ class ProductPage extends ConsumerWidget {
                             child: IconButton(
                               icon: const Icon(
                                 Icons.favorite_border,
-                                color: Colors.red,
+                                color: Colors.black,
                                 size: 20,
                               ),
                               onPressed: () {},
