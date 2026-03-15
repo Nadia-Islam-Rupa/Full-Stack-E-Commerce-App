@@ -129,6 +129,7 @@ class FavoritePage extends ConsumerWidget {
                         icon: const Icon(
                           Icons.delete_outline,
                           color: Colors.red,
+                          size: 30,
                         ),
                         onPressed: () {
                           ref
