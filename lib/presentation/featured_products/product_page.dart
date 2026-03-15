@@ -66,7 +66,7 @@ class ProductPage extends ConsumerWidget {
                           top: 8,
                           right: 8,
                           child: Container(
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
                             ),
