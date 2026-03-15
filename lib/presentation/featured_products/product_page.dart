@@ -1,3 +1,5 @@
+import 'package:ai_powered_e_commerce_app/data/Favorite/favorite_model.dart';
+import 'package:ai_powered_e_commerce_app/presentation/favorite/fav_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'provider/product_provider.dart';
@@ -76,7 +78,18 @@ class ProductPage extends ConsumerWidget {
                                 color: Colors.black,
                                 size: 20,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                ref
+                                    .read(favoriteProvider.notifier)
+                                    .addFavorite(
+                                      Favorite(
+                                        productId: product.id,
+                                        name: product.name,
+                                        image: product.image,
+                                        price: product.price,
+                                      ),
+                                    );
+                              },
                             ),
                           ),
                         ),

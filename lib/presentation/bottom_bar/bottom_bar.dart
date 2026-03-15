@@ -1,4 +1,5 @@
 import 'package:ai_powered_e_commerce_app/presentation/bottom_bar/custom_bottom_bar_shape.dart';
+import 'package:ai_powered_e_commerce_app/presentation/favorite/favorite_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomBar extends StatelessWidget {
@@ -22,7 +23,16 @@ class CustomBottomBar extends StatelessWidget {
           Positioned(
             bottom: 20,
             right: 40,
-            child: Icon(Icons.favorite_border, size: 26),
+            child: IconButton(
+              icon: Icon(Icons.favorite_border),
+
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const FavoritePage()),
+                );
+              },
+            ),
           ),
 
           // Center Button
