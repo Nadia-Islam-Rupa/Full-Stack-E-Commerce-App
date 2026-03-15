@@ -11,6 +11,7 @@ import 'package:ai_powered_e_commerce_app/data/banner/banner_data.dart';
 import 'package:ai_powered_e_commerce_app/data/featued_product/featured_data.dart';
 
 import '../category/provider/category_provider.dart';
+import '../sub_cat/sub_category.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -112,7 +113,20 @@ class HomePage extends ConsumerWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: CategoryItem(category: categories[index]),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => SubCategoryPage(
+                                categoryId: categories[index].id,
+                                title: categories[index].name,
+                              ),
+                            ),
+                          );
+                        },
+                        child: CategoryItem(category: categories[index]),
+                      ),
                     );
                   },
                 ),
