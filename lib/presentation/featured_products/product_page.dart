@@ -151,7 +151,7 @@ class ProductPage extends ConsumerWidget {
                                       price: product.price,
                                     ),
                                   );
-
+                              if (!context.mounted) return;
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text("Added to Cart 🛒"),
