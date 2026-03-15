@@ -77,24 +77,20 @@ class CartPage extends ConsumerWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
-                            const SizedBox(height: 8),
-
-                            /// Delete Favorite Button
-                            IconButton(
-                              icon: const Icon(
-                                Icons.delete_outline,
-                                color: Colors.red,
-                                size: 30,
-                              ),
-                              onPressed: () {
-                                ref
-                                    .read(cartProvider.notifier)
-                                    .removeCart(item.productId);
-                              },
-                            ),
                           ],
                         ),
+                      ),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.delete_outline,
+                          color: Colors.red,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          ref
+                              .read(cartProvider.notifier)
+                              .removeCart(item.productId);
+                        },
                       ),
                     ],
                   ),
