@@ -17,6 +17,7 @@ class ProductPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final products = ref.watch(productProvider(subCategoryId));
+    final favorites = ref.watch(favoriteProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -36,6 +37,9 @@ class ProductPage extends ConsumerWidget {
             ),
             itemBuilder: (context, index) {
               final product = items[index];
+              final isFavorite = favorites.any(
+                (favorite) => favorite.productId == product.id,
+              );
 
               return Container(
                 decoration: BoxDecoration(
@@ -73,13 +77,22 @@ class ProductPage extends ConsumerWidget {
                               shape: BoxShape.circle,
                             ),
                             child: IconButton(
-                              icon: const Icon(
-                                Icons.favorite_border,
-                                color: Colors.black,
+                              icon: Icon(
+                                isFavorite
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
+                                color: isFavorite ? Colors.red : Colors.black,
                                 size: 20,
                               ),
-                              onPressed: () {
-                                ref
+                              onPressed: () async {
+                                if (isFavorite) {
+                                  await ref
+                                      .read(favoriteProvider.notifier)
+                                      .removeFavorite(product.id);
+                                  return;
+                                }
+
+                                await ref
                                     .read(favoriteProvider.notifier)
                                     .addFavorite(
                                       Favorite(
