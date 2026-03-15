@@ -92,7 +92,7 @@ class ProductPage extends ConsumerWidget {
                         product.name,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 16,
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -104,12 +104,18 @@ class ProductPage extends ConsumerWidget {
                     /// PRICE
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Text(
-                        "\$${product.price}",
-                        style: const TextStyle(
-                          fontSize: 13,
-                          color: Colors.grey,
-                        ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "TK ${product.price}",
+                            style: const TextStyle(fontSize: 15),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.shopping_cart),
+                          ),
+                        ],
                       ),
                     ),
                   ],
