@@ -1,4 +1,6 @@
 import 'package:ai_powered_e_commerce_app/data/Favorite/favorite_model.dart';
+import 'package:ai_powered_e_commerce_app/data/add_cart/cart_model.dart';
+import 'package:ai_powered_e_commerce_app/presentation/cart/cart_provider.dart';
 import 'package:ai_powered_e_commerce_app/presentation/favorite/fav_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -138,8 +140,26 @@ class ProductPage extends ConsumerWidget {
                             style: const TextStyle(fontSize: 15),
                           ),
                           IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.shopping_cart),
+                            onPressed: () async {
+                              await ref
+                                  .read(cartProvider.notifier)
+                                  .addToCart(
+                                    Cart(
+                                      productId: product.id,
+                                      name: product.name,
+                                      image: product.image,
+                                      price: product.price,
+                                    ),
+                                  );
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Added to Cart 🛒"),
+                                  duration: Duration(seconds: 1),
+                                ),
+                              );
+                            },
+                            icon: const Icon(Icons.shopping_cart),
                           ),
                         ],
                       ),

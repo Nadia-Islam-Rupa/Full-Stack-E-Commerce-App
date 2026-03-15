@@ -1,3 +1,4 @@
+import 'package:ai_powered_e_commerce_app/presentation/cart/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -47,7 +48,12 @@ class HomePage extends ConsumerWidget {
                   ],
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const CartPage()),
+                    );
+                  },
                   icon: const Icon(Icons.shopping_cart, size: 28),
                 ),
               ],
