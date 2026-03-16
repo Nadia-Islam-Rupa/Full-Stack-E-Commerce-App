@@ -19,7 +19,9 @@ class SubCategoryPage extends ConsumerWidget {
     final subCategories = ref.watch(subCategoryProvider(categoryId));
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 240, 239, 239),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 240, 239, 239),
         title: Text(
           title,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),

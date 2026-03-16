@@ -10,7 +10,9 @@ class CartPage extends ConsumerWidget {
     final cart = ref.watch(cartProvider);
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 240, 239, 239),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 240, 239, 239),
         title: const Text(
           "My Cart",
           style: TextStyle(fontWeight: FontWeight.w600),

@@ -10,7 +10,9 @@ class FavoritePage extends ConsumerWidget {
     final favorites = ref.watch(favoriteProvider);
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 240, 239, 239),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 240, 239, 239),
         title: const Text(
           "My Favorites",
           style: TextStyle(fontWeight: FontWeight.w600),

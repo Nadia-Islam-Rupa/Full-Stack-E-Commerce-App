@@ -12,7 +12,9 @@ class CategoryPage extends ConsumerWidget {
     final categoryAsync = ref.watch(categoryProvider);
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 240, 239, 239),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 240, 239, 239),
         centerTitle: true,
         title: const Text(
           "Categories",

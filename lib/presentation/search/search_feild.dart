@@ -23,7 +23,11 @@ class _SearchFeildState extends ConsumerState<SearchFeild> {
       backgroundColor: const Color.fromARGB(255, 240, 239, 239),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 240, 239, 239),
-        title: const Text("Search"),
+        title: const Text(
+          "Search",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         children: [
