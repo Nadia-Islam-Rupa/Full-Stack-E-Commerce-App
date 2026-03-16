@@ -19,3 +19,20 @@ final searchProductProvider = FutureProvider.family<List<Product>, String>((
 
   return (response as List).map((e) => Product.fromJson(e)).toList();
 });
+
+final suggestionProvider = FutureProvider.family<List<Product>, String>((
+  ref,
+  query,
+) async {
+  if (query.isEmpty) return [];
+
+  final client = Supabase.instance.client;
+
+  final response = await client
+      .from('products')
+      .select()
+      .ilike('name', '$query%')
+      .limit(5);
+
+  return (response as List).map((e) => Product.fromJson(e)).toList();
+});
