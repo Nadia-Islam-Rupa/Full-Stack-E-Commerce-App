@@ -1,6 +1,7 @@
 import 'package:ai_powered_e_commerce_app/presentation/cart/cart_page.dart';
 import 'package:ai_powered_e_commerce_app/presentation/featured_products/product_page.dart';
 import 'package:ai_powered_e_commerce_app/presentation/home/product_card.dart';
+import 'package:ai_powered_e_commerce_app/presentation/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -76,7 +77,16 @@ class HomePage extends ConsumerWidget {
                   ),
                 ],
               ),
-              child: const TextField(
+              child: TextField(
+                onSubmitted: (value) {
+                  if (value.trim().isEmpty) return;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => SearchPage(query: value.trim()),
+                    ),
+                  );
+                },
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: "Search for products",

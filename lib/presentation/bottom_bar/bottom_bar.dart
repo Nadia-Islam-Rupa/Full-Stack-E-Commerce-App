@@ -1,5 +1,6 @@
 import 'package:ai_powered_e_commerce_app/presentation/bottom_bar/custom_bottom_bar_shape.dart';
 import 'package:ai_powered_e_commerce_app/presentation/favorite/favorite_page.dart';
+import 'package:ai_powered_e_commerce_app/presentation/search/search_feild.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomBar extends StatelessWidget {
@@ -19,7 +20,20 @@ class CustomBottomBar extends StatelessWidget {
           ),
 
           // Icons
-          Positioned(bottom: 20, left: 40, child: Icon(Icons.search, size: 26)),
+          Positioned(
+            bottom: 20,
+            left: 40,
+            child: IconButton(
+              icon: Icon(Icons.search),
+
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const SearchFeild()),
+                );
+              },
+            ),
+          ),
           Positioned(
             bottom: 20,
             right: 40,

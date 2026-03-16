@@ -13,7 +13,7 @@ class SearchPage extends ConsumerWidget {
     final results = ref.watch(searchProductProvider(query));
 
     return Scaffold(
-      appBar: AppBar(title: Text("Search: $query")),
+      appBar: AppBar(title: Text("Search: $query"), centerTitle: true),
       body: results.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text(e.toString())),
