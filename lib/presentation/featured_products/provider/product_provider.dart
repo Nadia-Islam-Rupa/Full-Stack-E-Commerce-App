@@ -8,7 +8,7 @@ final productRepositoryProvider = Provider((ref) {
   return ProductRepository(Supabase.instance.client);
 });
 
-final productProvider = FutureProvider.family<List<Product>, String>((
+final productProvider = FutureProvider.family<List<Product>, String?>((
   ref,
   subCategoryId,
 ) {

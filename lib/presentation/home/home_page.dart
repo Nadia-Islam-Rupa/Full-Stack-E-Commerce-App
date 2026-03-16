@@ -1,4 +1,6 @@
 import 'package:ai_powered_e_commerce_app/presentation/cart/cart_page.dart';
+import 'package:ai_powered_e_commerce_app/presentation/featured_products/product_page.dart';
+import 'package:ai_powered_e_commerce_app/presentation/home/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -6,12 +8,11 @@ import 'package:go_router/go_router.dart';
 import 'package:ai_powered_e_commerce_app/presentation/bottom_bar/bottom_bar.dart';
 import 'package:ai_powered_e_commerce_app/presentation/home/banner.dart';
 import 'package:ai_powered_e_commerce_app/presentation/home/category.dart';
-import 'package:ai_powered_e_commerce_app/presentation/home/featured_product.dart';
 
 import 'package:ai_powered_e_commerce_app/data/banner/banner_data.dart';
-import 'package:ai_powered_e_commerce_app/data/featued_product/featured_data.dart';
 
 import '../category/provider/category_provider.dart';
+import '../featured_products/provider/featured_product_provider.dart';
 import '../sub_cat/sub_category.dart';
 
 class HomePage extends ConsumerWidget {
@@ -20,6 +21,7 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final categoryAsync = ref.watch(categoryProvider);
+    final featuredAsync = ref.watch(featuredProductProvider);
 
     return Scaffold(
       extendBody: true,
@@ -30,7 +32,7 @@ class HomePage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// ─── Header ───────────────────────────────
+            /// HEADER
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -61,7 +63,7 @@ class HomePage extends ConsumerWidget {
 
             const SizedBox(height: 20),
 
-            /// ─── Search ───────────────────────────────
+            /// SEARCH
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -85,7 +87,7 @@ class HomePage extends ConsumerWidget {
 
             const SizedBox(height: 20),
 
-            /// ─── Categories Header ────────────────────
+            /// CATEGORY HEADER
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -107,7 +109,7 @@ class HomePage extends ConsumerWidget {
 
             const SizedBox(height: 20),
 
-            /// ─── Categories List (Supabase + Riverpod) ─
+            /// CATEGORY LIST
             SizedBox(
               height: 90,
               child: categoryAsync.when(
@@ -141,36 +143,55 @@ class HomePage extends ConsumerWidget {
 
             const SizedBox(height: 20),
 
-            /// ─── Banner ───────────────────────────────
+            /// BANNER
             BannerSlider(banners: bannerImages),
 
             const SizedBox(height: 20),
 
-            /// ─── Featured Header ──────────────────────
+            /// FEATURED HEADER
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   "Featured",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  "view all →",
-                  style: TextStyle(fontSize: 14, color: Colors.blue),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProductPage(
+                          subCategoryId: null,
+                          title: 'All Products',
+                        ),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "view all →",
+                    style: TextStyle(fontSize: 14, color: Colors.blue),
+                  ),
                 ),
               ],
             ),
 
             const SizedBox(height: 20),
 
-            /// ─── Featured Products (still static) ─────
+            /// FEATURED PRODUCTS (RANDOM)
             SizedBox(
               height: 220,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: featuredProducts.length,
-                itemBuilder: (context, index) {
-                  return ProductCard(product: featuredProducts[index]);
+              child: featuredAsync.when(
+                loading: () => const Center(child: CircularProgressIndicator()),
+                error: (e, _) => Center(child: Text(e.toString())),
+                data: (products) {
+                  return ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 4,
+                    itemBuilder: (context, index) {
+                      return ProductCard(product: products[index]);
+                    },
+                  );
                 },
               ),
             ),

@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'provider/product_provider.dart';
 
 class ProductPage extends ConsumerWidget {
-  final String subCategoryId;
+  final String? subCategoryId;
   final String title;
 
   const ProductPage({
