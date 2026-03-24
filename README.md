@@ -1,4 +1,4 @@
-# AI Powered E-Commerce App
+# E-Commerce App
 
 A Flutter e-commerce application with Supabase backend, Riverpod state management, and a clean multi-screen shopping flow.
 
