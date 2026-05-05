@@ -45,14 +45,6 @@ The project name mentions "AI Powered", but there is currently no AI recommendat
   - Read all cart items
 - Custom curved bottom navigation bar UI
 
-## Not Implemented Yet
-
-- Authentication and user sessions
-- User-specific cart/favorites isolation
-- Checkout and payment flow
-- Order history
-- AI personalization/recommendations
-
 ## Project Structure
 
 ```text
